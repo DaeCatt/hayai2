@@ -4,5 +4,9 @@
 	"description": "Hayai2 HTTP/2 Server Helper",
 	"main": "hayai.js",
 	"author": "Dae Catt",
-	"license": "ISC"
+	"license": "ISC",
+	"repository": "git://github.com/DaeCatt/hayai2.git",
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com/"
+	}
 }
