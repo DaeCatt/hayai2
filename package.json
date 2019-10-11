@@ -5,7 +5,10 @@
 	"main": "hayai.js",
 	"author": "Dae Catt",
 	"license": "ISC",
-	"repository": "git://github.com/DaeCatt/hayai2.git",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/DaeCatt/hayai2.git"
+	},
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com/"
 	}
