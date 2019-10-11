@@ -1,8 +1,8 @@
 {
-  "name": "hayai2",
-  "version": "1.0.0",
-  "description": "Hayai2 HTTP/2 Server Helper",
-  "main": "hayai.js",
-  "author": "Dae Catt",
-  "license": "ISC"
+	"name": "@daecatt/hayai2",
+	"version": "0.0.1",
+	"description": "Hayai2 HTTP/2 Server Helper",
+	"main": "hayai.js",
+	"author": "Dae Catt",
+	"license": "ISC"
 }
