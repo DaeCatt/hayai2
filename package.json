@@ -1,7 +1,7 @@
 {
 	"name": "@daecatt/hayai2",
 	"version": "0.0.1",
-	"description": "Hayai2 HTTP/2 Server Helper",
+	"description": "Hayai2 is an experimental HTTP/2 server helper for NodeJS.",
 	"main": "hayai.js",
 	"author": "Dae Catt",
 	"license": "ISC",
