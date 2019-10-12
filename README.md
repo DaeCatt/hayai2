@@ -1,9 +1,16 @@
 # Hayai2 HTTP/2 Server
 
-Hayai2 is an experimental HTTP/2 server helper for NodeJS. It's designed to
-minimize the amount of work required to support http/1.1 + https/1.1 + http/2.
+Experimental opinionated HTTP/2 framework for Node.js. Get a HTTP/2 server up
+and running with a simple and elegant API.
 
 **API SUBJECT TO CHANGE**
+
+## Goals
+
+-   Handle http/1.1, https/1.1 and http/2 out of the box.
+-   Minimal configuration.
+-   No surprises.
+-   Strong helpers available by default.
 
 ## Usage
 
@@ -40,11 +47,6 @@ createServer({ port: 443, cert, key }, async request => {
 	return response.end(`Hello world!`);
 });
 ```
-
-## Goals
-
--   No magic.
--   Automatically handle everything needed to let you develop against HTTP/2.
 
 ## Cookie "middleware" Example
 
