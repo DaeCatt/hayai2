@@ -2,6 +2,10 @@
  * Cookie Handler for Hayai2
  */
 
+/**
+ * @typedef {InstanceType<import('hayai')['Http1Request']>|InstanceType<import('hayai')['Http2Request']>} HttpRequest
+ */
+
 "use strict";
 class Cookies {
 	/** @type {Set<string>} */
@@ -137,19 +141,21 @@ class Cookies {
 		return headers;
 	}
 
-	/**
-	 * @param {any} request
-	 */
-	bindRequest(request) {
-		const original = request.respond.bind(request);
-		request.respond = (status, headers) =>
-			original(status, this.setCookies(headers));
-
-		return request;
-	}
-
 	[Symbol.iterator]() {
 		return this.entries();
+	}
+
+	/**
+	 * Create Cookies object and attach outgoing cookies on respond.
+	 * @param {HttpRequest} request
+	 */
+	static bind(request) {
+		const cookies = Cookies.fromString(request.headers["cookie"]);
+		const respond = request.respond.bind(request);
+		request.respond = (status, headers) =>
+			respond(status, cookies.setCookies(headers));
+
+		return cookies;
 	}
 
 	/**

@@ -55,11 +55,8 @@ const { createServer } = require("hayai2");
 const Cookies = require("hayai2/cookies");
 
 createServer(opts, async request => {
-	// Parse cookies
-	const cookies = Cookies.fromString(request.headers["cookie"]);
-
-	// Modify request.respond to add the set-cookie header automatically.
-	cookies.bindRequest(request);
+	// Get cookies and modify request.respond to handle outgoing cookies.
+	const cookies = Cookies.bind(request);
 
 	// Check whether a cookie exists
 	cookies.has("session");
