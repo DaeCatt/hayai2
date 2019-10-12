@@ -17,11 +17,21 @@ const HayaiServer = require("./lib/Server");
 const AsyncFunction = Object.getPrototypeOf(async () => {}).constructor;
 
 /**
- * @param {Object} options
+ * @typedef {Object} HttpServerOptions
+ * @property {number=} port HTTPs port to use. Defaults to 443.
+ * @property {boolean=} redirectHttp Whether to redirect http. Defaults to
+ * `true` if `port` is `443`.
+ */
+
+/**
+ * @param {HttpServerOptions & http2.SecureServerOptions} options
  * @param {(request: Http1Request|Http2Request) => Promise<void>} listener
  * @return {Promise<HayaiServer>}
  */
-const createServer = async ({ port = 443, ...options } = {}, listener) => {
+const createServer = async (
+	{ port = 443, redirectHttp = port === 443, ...options } = {},
+	listener
+) => {
 	if (!(listener instanceof AsyncFunction))
 		throw new Error(`listener must be async function.`);
 
@@ -58,7 +68,7 @@ const createServer = async ({ port = 443, ...options } = {}, listener) => {
 		port
 	);
 
-	if (port === 443) {
+	if (redirectHttp) {
 		server.addServer(
 			http.createServer((request, response) => {
 				if (!request.headers["host"]) {

@@ -33,7 +33,7 @@ const [cert, key] = await Promise.all([
 /**
  * No need to .listen, the server is automatically attached to given port.
  * A http-to-https server is automatically created on port 80 if the given port
- * is 443.
+ * is 443. To disable this `redirectHttp: false` can be used.
  */
 createServer({ port: 443, cert, key }, async request => {
 	/**
