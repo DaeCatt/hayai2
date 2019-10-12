@@ -5,6 +5,12 @@ and running with a simple and elegant API.
 
 **API SUBJECT TO CHANGE**
 
+## Partial Roadmap
+
+-   Make headers use `Headers` object to remove complexity when interacting with http headers.
+-   Add MediaType helper to ease interaction with `Content-Type` header.
+-   Add a helper to ease interaction with `Accept-` content negotation headers.
+
 ## Goals
 
 -   Handle http/1.1, https/1.1 and http/2 out of the box.
