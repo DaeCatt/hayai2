@@ -3,7 +3,7 @@
  */
 
 /**
- * @typedef {InstanceType<import('hayai')['Http1Request']>|InstanceType<import('hayai')['Http2Request']>} HttpRequest
+ * @typedef {InstanceType<import('hayai2')['Http1Request']>|InstanceType<import('hayai2')['Http2Request']>} HttpRequest
  */
 
 "use strict";
